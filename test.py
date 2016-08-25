@@ -1,10 +1,9 @@
 from ApiKeys.twitter import CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET
 from scitwi import PlacesWOE, TwitterApp
 
-app = TwitterApp(CONSUMER_KEY=CONSUMER_KEY, CONSUMER_SECRET=CONSUMER_SECRET,
-                 OAUTH_TOKEN=OAUTH_TOKEN, OAUTH_TOKEN_SECRET=OAUTH_TOKEN_SECRET)
+app = TwitterApp(consumer_key=CONSUMER_KEY, consumer_secret=CONSUMER_SECRET,
+                 oauth_token=OAUTH_TOKEN, oauth_token_secret=OAUTH_TOKEN_SECRET)
+
 trends = app.get_trends(PlacesWOE.UnitedKingdom)
-print(trends.as_of)
-print(trends.created_at)
-print(trends.locations)
-print(trends.trends_dataframe)
+for t in trends.trends_list:
+    print(t)

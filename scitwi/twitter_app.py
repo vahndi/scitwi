@@ -1,17 +1,17 @@
 import twitter
 
-from .twitter_trends import TwitterTrends
+from scitwi.trends import TwitterTrends
 from .places import PlacesWOE
 
 
 class TwitterApp(object):
     
-    def __init__(self, 
-                 CONSUMER_KEY, CONSUMER_SECRET, 
-                 OAUTH_TOKEN, OAUTH_TOKEN_SECRET):
+    def __init__(self,
+                 consumer_key: str, consumer_secret: str,
+                 oauth_token: str, oauth_token_secret: str):
                      
         auth = twitter.oauth.OAuth(
-            OAUTH_TOKEN, OAUTH_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET
+            oauth_token, oauth_token_secret, consumer_key, consumer_secret
         )
         self.api = twitter.Twitter(auth=auth)
 
