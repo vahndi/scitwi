@@ -28,7 +28,6 @@ class TwitterTrends(object):
     def locations(self):
         
         return self._response_dict['locations']
-        
 
     @property
     def trends_list(self):
@@ -36,8 +35,19 @@ class TwitterTrends(object):
         return [TwitterTrend(trend_dict=t, as_of=self.as_of,
                              created_at=self.created_at, locations=self.locations)
                 for t in self._response_dict['trends']]
+    @property
+    def trend_names(self):
+
+        return [t.name for t in self.trends_list]
         
     @property
     def trends_dataframe(self):
         
         return DataFrame(self.trends_list)
+
+    @staticmethod
+    def common_trend_names(trends_1, trends_2):
+
+        set_1 = set([trend.name for trend in trends_1.trends_list])
+        set_2 = set([trend.name for trend in trends_2.trends_list])
+        return sorted(set_1.intersection(set_2))
