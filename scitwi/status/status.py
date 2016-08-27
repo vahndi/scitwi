@@ -1,7 +1,7 @@
 from scitwi.entities.entities import Entities
-from scitwi.locations.coordinates import Coordinates
-from scitwi.locations.geo import Geo
-from scitwi.locations.place import Place
+from scitwi.places.coordinates import Coordinates
+from scitwi.places.geo import Geo
+from scitwi.places.place import Place
 from scitwi.status.status_metadata import StatusMetadata
 from scitwi.utils import get_datetime
 

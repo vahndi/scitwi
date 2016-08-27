@@ -1,4 +1,4 @@
-from scitwi.locations.bounding_box import BoundingBox
+from scitwi.places.bounding_box import BoundingBox
 
 
 class Place(object):

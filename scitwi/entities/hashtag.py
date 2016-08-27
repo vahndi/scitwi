@@ -1,5 +1,7 @@
 from typing import List
 
+from scitwi.utils import basic_attr, str_attr, list_int_attr
+
 
 class Hashtag(object):
     """
@@ -7,8 +9,8 @@ class Hashtag(object):
     """
     def __init__(self, hashtag):
 
-        self.indices = hashtag['indices']  # type: List[int]
-        self.text = hashtag['text']  # type: str
+        self.indices = list_int_attr(hashtag, 'indices')
+        self.text = str_attr(hashtag, 'text')
 
     def __str__(self):
 

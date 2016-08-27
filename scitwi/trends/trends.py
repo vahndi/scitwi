@@ -27,7 +27,7 @@ class Trends(object):
     @property
     def locations(self):
         
-        return self._response_dict['locations']
+        return self._response_dict['places']
 
     @property
     def trends_list(self):

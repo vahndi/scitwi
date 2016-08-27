@@ -3,6 +3,7 @@ from typing import List
 from scitwi.entities.hashtag import Hashtag
 from scitwi.media.media_item import MediaItem
 from scitwi.users.user_mention import UserMention
+from scitwi.utils import list_obj_attr, list_str_attr
 
 
 class Entities(object):
@@ -11,26 +12,11 @@ class Entities(object):
     """
     def __init__(self, entities: dict):
 
-        self.hashtags = (
-            [Hashtag(h) for h in entities['hashtags']]
-            if 'hashtags' in entities.keys()
-            else []
-        )  # type: List[Hashtag]
-        self.media = (
-            [MediaItem(m) for m in entities['media']]
-            if 'media' in entities.keys() else []
-        )  # type: List[MediaItem]
-        self.symbols = (
-            entities['symbols'] if 'symbols' in entities.keys() else []
-        )  # type: List[str]
-        self.urls = (
-            entities['urls'] if 'urls' in entities.keys() else []
-        )  # type: List[str]
-        self.user_mentions = (
-            [UserMention(m) for m in entities['user_mentions']]
-            if 'user_mentions' in entities.keys()
-            else []
-        )  # type: List[UserMention]
+        self.hashtags = list_obj_attr(entities, 'hashtags', Hashtag)  # type: List[Hashtag]
+        self.media = list_obj_attr(entities, 'media', MediaItem)  # type: List[MediaItem]
+        self.symbols = list_str_attr(entities, 'symbols')
+        self.urls = list_str_attr(entities, 'urls')
+        self.user_mentions = list_obj_attr(entities, 'user_mentions', UserMention)  # type: List[UserMention]
 
     def __str__(self):
 

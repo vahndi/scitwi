@@ -2,7 +2,7 @@ import twitter
 
 from scitwi.search.search import Search
 from scitwi.trends import Trends
-from .locations import PlaceWOE
+from .places import PlaceWOE
 from pprint import pprint
 
 
