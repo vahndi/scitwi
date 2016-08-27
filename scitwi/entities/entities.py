@@ -1,36 +1,40 @@
+from typing import List
+
 from scitwi.entities.hashtag import Hashtag
 from scitwi.media.media_item import MediaItem
 from scitwi.users.user_mention import UserMention
 
 
 class Entities(object):
-
+    """
+    https://dev.twitter.com/overview/api/entities
+    """
     def __init__(self, entities: dict):
 
         self.hashtags = (
             [Hashtag(h) for h in entities['hashtags']]
             if 'hashtags' in entities.keys()
             else []
-        )
+        )  # type: List[Hashtag]
         self.media = (
             [MediaItem(m) for m in entities['media']]
-            if 'media' in entities.keys() else [])
+            if 'media' in entities.keys() else []
+        )  # type: List[MediaItem]
         self.symbols = (
             entities['symbols'] if 'symbols' in entities.keys() else []
-        )
+        )  # type: List[str]
         self.urls = (
             entities['urls'] if 'urls' in entities.keys() else []
-        )
+        )  # type: List[str]
         self.user_mentions = (
             [UserMention(m) for m in entities['user_mentions']]
             if 'user_mentions' in entities.keys()
             else []
-        )
+        )  # type: List[UserMention]
 
     def __str__(self):
 
-        str_out = 'ENTITIES\n'
-        str_out += '--------\n\n'
+        str_out = ''
         if self.hashtags:
             str_out += 'Hashtags:\n'
             for hashtag in self.hashtags:

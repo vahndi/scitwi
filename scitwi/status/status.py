@@ -1,5 +1,4 @@
 from scitwi.entities.entities import Entities
-from scitwi.entities.extended_entities import ExtendedEntities
 from scitwi.locations.coordinates import Coordinates
 from scitwi.locations.geo import Geo
 from scitwi.locations.place import Place
@@ -24,7 +23,7 @@ class Status(object):
             else None
         )
         self.extended_entities = (
-            ExtendedEntities(status['extended_entities'])
+            Entities(status['extended_entities'])
             if 'extended_entities' in status.keys() and status['extended_entities'] is not None
             else None
         )
