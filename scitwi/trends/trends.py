@@ -1,9 +1,9 @@
 from pandas import DataFrame
 from twitter.api import TwitterListResponse
-from .twitter_trend import TwitterTrend
+from .trend import Trend
 
 
-class TwitterTrends(object):
+class Trends(object):
 
     def __init__(self, response: TwitterListResponse):
         
@@ -32,8 +32,8 @@ class TwitterTrends(object):
     @property
     def trends_list(self):
         
-        return [TwitterTrend(trend_dict=t, as_of=self.as_of,
-                             created_at=self.created_at, locations=self.locations)
+        return [Trend(trend_dict=t, as_of=self.as_of,
+                      created_at=self.created_at, locations=self.locations)
                 for t in self._response_dict['trends']]
     @property
     def trend_names(self):

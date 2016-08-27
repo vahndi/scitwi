@@ -1,4 +1,4 @@
-class TwitterTrend(object):
+class Trend(object):
 
     def __init__(self, trend_dict, as_of, created_at, locations):
 

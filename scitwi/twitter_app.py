@@ -1,7 +1,9 @@
 import twitter
 
-from scitwi.trends import TwitterTrends
-from .places import PlacesWOE
+from scitwi.search.search import Search
+from scitwi.trends import Trends
+from .locations import PlaceWOE
+from pprint import pprint
 
 
 class TwitterApp(object):
@@ -15,8 +17,13 @@ class TwitterApp(object):
         )
         self.api = twitter.Twitter(auth=auth)
 
-    def get_trends(self, place: PlacesWOE):
+    def get_trends(self, place: PlaceWOE):
         
         trends = self.api.trends.place(_id=str(place.value))
                 
-        return TwitterTrends(trends)
+        return Trends(trends)
+
+    def search(self, query, count=100):
+
+        search_results = self.api.search.tweets(q=query, count=count)
+        return Search(search_results)

@@ -1,4 +1,4 @@
-from scitwi.trends.twitter_trends import TwitterTrends
-from .places import PlacesWOE
+from scitwi.trends.trends import Trends
+from .locations import PlaceWOE
 from .twitter_app import TwitterApp
 

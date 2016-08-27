@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class PlacesWOE(Enum):
+class PlaceWOE(Enum):
     
     Earth = 1
     UnitedStates = 23424977
