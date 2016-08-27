@@ -2,6 +2,15 @@ from datetime import datetime
 from typing import List
 
 
+def dict_attr(attr_dict: dict, attr_dict_key: str):
+    """
+    :rtype: dict
+    """
+    if attr_dict_key in attr_dict.keys():
+        return attr_dict[attr_dict_key]
+    return None
+
+
 def int_attr(attr_dict: dict, attr_dict_key: str):
     """
     :rtype: int
@@ -56,3 +65,19 @@ def obj_attr(attr_dict: dict, attr_dict_key: str, obj_type: type):
 def get_datetime(str_date):
 
     return datetime.strptime(str_date, '%a %b %d %H:%M:%S +0000 %Y')
+
+
+def attr_string(attr_name: str, attr_value):
+
+    if attr_value:
+        return '%s: %s\n' % (attr_name, str(attr_value))
+    return ''
+
+
+def list_attr_string(attr_name: str, attr_values):
+
+    str_out = ''
+    if attr_values:
+        str_out += '%s:\n' % attr_name
+        for v in attr_values:
+            str_out += '\t%s\n' % str(v)

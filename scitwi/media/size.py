@@ -1,4 +1,4 @@
-from scitwi.utils import int_attr, str_attr
+from scitwi.utils import int_attr, str_attr, attr_string
 
 
 class Size(object):
@@ -14,11 +14,8 @@ class Size(object):
     def __str__(self):
 
         str_out = ''
-        if self.height:
-            str_out += 'Height: %i\n' % self.height
-        if self.width:
-            str_out += 'Width: %i\n' % self.width
-        if self.resize:
-            str_out += 'Resize: %s' % self.resize
+        str_out += attr_string('Height', self.height)
+        str_out += attr_string('Width', self.width)
+        str_out += attr_string('Resize', self.resize)
 
         return str_out

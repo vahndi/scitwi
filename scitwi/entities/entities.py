@@ -3,7 +3,7 @@ from typing import List
 from scitwi.entities.hashtag import Hashtag
 from scitwi.media.media_item import MediaItem
 from scitwi.users.user_mention import UserMention
-from scitwi.utils import list_obj_attr, list_str_attr
+from scitwi.utils import list_obj_attr, list_str_attr, attr_string, list_attr_string
 
 
 class Entities(object):
@@ -21,21 +21,8 @@ class Entities(object):
     def __str__(self):
 
         str_out = ''
-        if self.hashtags:
-            str_out += 'Hashtags:\n'
-            for hashtag in self.hashtags:
-                str_out += '\t%s\n' % str(hashtag)
-        if self.media:
-            str_out += 'Media:\n'
-            for media_item in self.media:
-                str_out += '\t%s\n' % str(media_item)
-        if self.symbols:
-            str_out += 'Symbols:\n'
-            for symbol in self.symbols:
-                str_out += '\t%s\n' % str(symbol)
-        if self.user_mentions:
-            str_out += 'User Mentions:'
-            for mention in self.user_mentions:
-                str_out += '\t%s\n' % str(mention)
-
+        str_out += attr_string('Hashtags', self.hashtags)
+        str_out += list_attr_string('Media', self.media)
+        str_out += attr_string('Symbols', self.symbols)
+        str_out += list_attr_string('User Mentions', self.user_mentions)
         return str_out

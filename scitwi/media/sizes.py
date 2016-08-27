@@ -1,5 +1,5 @@
 from scitwi.media.size import Size
-from scitwi.utils import obj_attr
+from scitwi.utils import obj_attr, attr_string
 
 
 class Sizes(object):
@@ -16,13 +16,9 @@ class Sizes(object):
     def __str__(self):
 
         str_out = ''
-        if self.large:
-            str_out += 'Large: %s\n' % str(self.large)
-        if self.medium:
-            str_out += 'Large: %s\n' % str(self.large)
-        if self.small:
-            str_out += 'Large: %s\n' % str(self.large)
-        if self.thumb:
-            str_out += 'Large: %s\n' % str(self.large)
+        str_out += attr_string('Large', self.large)
+        str_out += attr_string('Medium', self.medium)
+        str_out += attr_string('Small', self.small)
+        str_out += attr_string('Thumb', self.thumb)
 
         return str_out

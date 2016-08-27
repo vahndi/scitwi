@@ -4,7 +4,9 @@ from scitwi.utils import get_datetime
 
 
 class User(object):
-
+    """
+    https://dev.twitter.com/overview/api/users
+    """
     def __init__(self, user: dict):
 
         self.contributors_enabled = user['contributors_enabled']
