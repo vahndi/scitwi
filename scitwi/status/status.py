@@ -35,12 +35,9 @@ class Status(object):
             else None
         )
         self.id_ = status['id']
-        self.id_str = status['id_str']
         self.in_reply_to_screen_name = status['in_reply_to_screen_name']
         self.in_reply_to_status_id = status['in_reply_to_status_id']
-        self.in_reply_to_status_id_str = status['in_reply_to_status_id_str']
         self.in_reply_to_user_id = status['in_reply_to_user_id']
-        self.in_reply_to_user_id_str = status['in_reply_to_user_id_str']
         self.is_quote_status = status['is_quote_status']
         self.lang = status['lang']
         self.metadata = (

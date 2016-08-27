@@ -21,7 +21,6 @@ class User(object):
         self.geo_enabled = user['geo_enabled']
         self.has_extended_profile = user['has_extended_profile']
         self.id_ = user['id']
-        self.id_str = user['id_str']
         self.is_translation_enabled = user['is_translation_enabled']
         self.is_translator = user['is_translator']
         self.lang = user['lang']
