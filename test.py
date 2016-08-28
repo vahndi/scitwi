@@ -18,7 +18,7 @@ def test_trends():
 
 # test_trends()
 q = '#NationalDogDay'
-results = app.search(q, 100)
+results = app.search_tweets(q, 100)
 print(type(results))
 pprint(results)
 

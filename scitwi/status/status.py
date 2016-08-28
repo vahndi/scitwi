@@ -1,5 +1,5 @@
 from scitwi.entities.entities import Entities
-from scitwi.places.coordinates import Coordinates
+from scitwi.places.bounding_box_coordinates import BoundingBoxCoordinates
 from scitwi.places.geo import Geo
 from scitwi.places.place import Place
 from scitwi.status.status_metadata import StatusMetadata
@@ -12,7 +12,7 @@ class Status(object):
 
         self.contributors = status['contributors']
         self.coordinates = (
-            Coordinates(status['coordinates'])
+            BoundingBoxCoordinates(status['coordinates'])
             if 'coordinates' in status.keys() and status['coordinates'] is not None
             else None
         )

@@ -25,12 +25,21 @@ def dict_attr(attr_dict: dict, attr_dict_key: str):
     """
     if attr_dict_key in attr_dict.keys():
         return attr_dict[attr_dict_key]
-    return None
+    return {}
 
 
 def int_attr(attr_dict: dict, attr_dict_key: str):
     """
     :rtype: int
+    """
+    if attr_dict_key in attr_dict.keys():
+        return attr_dict[attr_dict_key]
+    return None
+
+
+def float_attr(attr_dict: dict, attr_dict_key: str):
+    """
+    :rtype: float
     """
     if attr_dict_key in attr_dict.keys():
         return attr_dict[attr_dict_key]
@@ -56,6 +65,15 @@ def list_obj_attr(attr_dict: dict, attr_dict_key: str, obj_type: type):
 def list_int_attr(attr_dict: dict, attr_dict_key: str):
     """
     :rtype: List[int]
+    """
+    if attr_dict_key in attr_dict.keys():
+        return attr_dict[attr_dict_key]
+    return []
+
+
+def list_float_attr(attr_dict: dict, attr_dict_key: str):
+    """
+    :rtype: List[float]
     """
     if attr_dict_key in attr_dict.keys():
         return attr_dict[attr_dict_key]

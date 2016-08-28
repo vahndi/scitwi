@@ -1,11 +1,11 @@
 from scitwi.utils.strs import attr_string
 
 
-class Coordinates(object):
+class BoundingBoxCoordinates(object):
 
-    def __init__(self, coordinates: dict):
+    def __init__(self, coordinates: list):
 
-        self.coordinates = coordinates['coordinates']
+        self.coordinates = coordinates
 
     def __str__(self):
 

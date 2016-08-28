@@ -1,4 +1,4 @@
-from scitwi.places.coordinates import Coordinates
+from scitwi.places.bounding_box_coordinates import BoundingBoxCoordinates
 from scitwi.utils.attrs import obj_attr, str_attr
 from scitwi.utils.strs import attr_string
 
@@ -9,7 +9,7 @@ class BoundingBox(object):
     """
     def __init__(self, bounding_box: dict):
 
-        self.coordinates = obj_attr(bounding_box, 'coordinates', Coordinates)
+        self.coordinates = obj_attr(bounding_box, 'coordinates', BoundingBoxCoordinates)
         self.type_ = str_attr(bounding_box, 'type')
 
     def __str__(self):
