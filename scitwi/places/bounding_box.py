@@ -1,5 +1,6 @@
 from scitwi.places.coordinates import Coordinates
-from scitwi.utils import obj_attr, str_attr, attr_string
+from scitwi.utils.attrs import obj_attr, str_attr
+from scitwi.utils.strs import attr_string
 
 
 class BoundingBox(object):

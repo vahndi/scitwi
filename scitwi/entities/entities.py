@@ -3,7 +3,8 @@ from typing import List
 from scitwi.entities.hashtag import Hashtag
 from scitwi.media.media_item import MediaItem
 from scitwi.users.user_mention import UserMention
-from scitwi.utils import list_obj_attr, list_str_attr, attr_string, list_attr_string
+from scitwi.utils.attrs import list_obj_attr, list_str_attr
+from scitwi.utils.strs import attr_string, list_attr_string
 
 
 class Entities(object):

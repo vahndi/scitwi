@@ -1,8 +1,19 @@
-from scitwi.users.user_description_entity import UserDescriptionEntity
+from scitwi.users.user_entities_description import UserEntitiesDescription
+from scitwi.users.user_entities_url import UserEntitiesUrl
+from scitwi.utils.attrs import obj_attr
+from scitwi.utils.strs import attr_string
 
 
 class UserEntities(object):
 
     def __init__(self, entities: dict):
 
-        self.description = UserDescriptionEntity(entities['description'])
+        self.description = obj_attr(entities, 'description', UserEntitiesDescription)
+        self.url = obj_attr(entities, 'url', UserEntitiesUrl)
+
+    def __str__(self):
+
+        str_out = ''
+        str_out += attr_string('Description', self.description)
+        str_out += attr_string('Url', self.url)
+        return str_out

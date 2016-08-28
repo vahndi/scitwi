@@ -1,6 +1,7 @@
 from typing import List
 
-from scitwi.utils import str_attr, list_int_attr, list_attr_string, attr_string
+from scitwi.utils.attrs import str_attr, list_int_attr
+from scitwi.utils.strs import list_attr_string, attr_string
 
 
 class Hashtag(object):

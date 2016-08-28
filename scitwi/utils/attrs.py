@@ -1,5 +1,22 @@
-from datetime import datetime
-from typing import List
+from scitwi.utils.misc import get_datetime
+
+
+def bool_attr(attr_dict: dict, attr_dict_key: str):
+    """
+    :rtype: bool
+    """
+    if attr_dict_key in attr_dict.keys():
+        return attr_dict[attr_dict_key]
+    return None
+
+
+def datetime_attr(attr_dict: dict, attr_dict_key: str):
+    """
+    :rtype: datetime
+    """
+    if attr_dict_key in attr_dict.keys():
+        return get_datetime(attr_dict[attr_dict_key])
+    return None
 
 
 def dict_attr(attr_dict: dict, attr_dict_key: str):
@@ -31,7 +48,7 @@ def str_attr(attr_dict: dict, attr_dict_key: str):
 
 def list_obj_attr(attr_dict: dict, attr_dict_key: str, obj_type: type):
 
-    if 'hashtags' in attr_dict.keys():
+    if attr_dict_key in attr_dict.keys():
         return [obj_type(v) for v in attr_dict[attr_dict_key]]
     return []
 
@@ -60,24 +77,3 @@ def obj_attr(attr_dict: dict, attr_dict_key: str, obj_type: type):
         if attr_dict[attr_dict_key] is not None:
             return obj_type(attr_dict[attr_dict_key])
     return None
-
-
-def get_datetime(str_date):
-
-    return datetime.strptime(str_date, '%a %b %d %H:%M:%S +0000 %Y')
-
-
-def attr_string(attr_name: str, attr_value):
-
-    if attr_value:
-        return '%s: %s\n' % (attr_name, str(attr_value))
-    return ''
-
-
-def list_attr_string(attr_name: str, attr_values):
-
-    str_out = ''
-    if attr_values:
-        str_out += '%s:\n' % attr_name
-        for v in attr_values:
-            str_out += '\t%s\n' % str(v)

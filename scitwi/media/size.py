@@ -1,4 +1,5 @@
-from scitwi.utils import int_attr, str_attr, attr_string
+from scitwi.utils.attrs import int_attr, str_attr
+from scitwi.utils.strs import attr_string
 
 
 class Size(object):

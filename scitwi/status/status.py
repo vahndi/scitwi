@@ -3,7 +3,7 @@ from scitwi.places.coordinates import Coordinates
 from scitwi.places.geo import Geo
 from scitwi.places.place import Place
 from scitwi.status.status_metadata import StatusMetadata
-from scitwi.utils import get_datetime
+from scitwi.utils.misc import get_datetime
 
 
 class Status(object):

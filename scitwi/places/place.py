@@ -1,5 +1,6 @@
 from scitwi.places.bounding_box import BoundingBox
-from scitwi.utils import dict_attr, str_attr, attr_string
+from scitwi.utils.attrs import dict_attr, str_attr
+from scitwi.utils.strs import attr_string
 
 
 class Place(object):

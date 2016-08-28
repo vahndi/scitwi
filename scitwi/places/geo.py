@@ -1,4 +1,4 @@
-from scitwi.utils import attr_string
+from scitwi.utils.strs import attr_string
 
 
 class Geo(object):

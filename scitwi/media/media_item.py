@@ -1,5 +1,6 @@
 from scitwi.media.sizes import Sizes
-from scitwi.utils import str_attr, int_attr, list_int_attr, obj_attr, attr_string, list_attr_string
+from scitwi.utils.attrs import str_attr, int_attr, list_int_attr, obj_attr
+from scitwi.utils.strs import attr_string, list_attr_string
 
 
 class MediaItem(object):

@@ -1,5 +1,6 @@
 from scitwi.media.size import Size
-from scitwi.utils import obj_attr, attr_string
+from scitwi.utils.attrs import obj_attr
+from scitwi.utils.strs import attr_string
 
 
 class Sizes(object):
