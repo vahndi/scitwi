@@ -1,6 +1,6 @@
 from scitwi.users.user_entities import UserEntities
 from scitwi.users.user_profile import UserProfile
-from scitwi.utils import get_datetime, bool_attr, datetime_attr, str_attr, obj_attr
+from scitwi.utils.attrs import bool_attr, datetime_attr, str_attr, obj_attr
 from scitwi.utils.attrs import int_attr
 
 

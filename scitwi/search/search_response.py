@@ -1,6 +1,6 @@
 from twitter.api import TwitterDictResponse
 
-from scitwi.status.status import Status
+from scitwi.tweets.tweet import Tweet
 from scitwi.utils.strs import attr_string
 from .search_metadata import SearchMetadata
 
@@ -13,7 +13,7 @@ class SearchResponse(object):
 
         self._response = response
         self.metadata = SearchMetadata(response['search_metadata'])
-        self.statuses = [Status(s) for s in response['statuses']]
+        self.statuses = [Tweet(s) for s in response['statuses']]
 
     def __str__(self):
 

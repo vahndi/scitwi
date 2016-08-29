@@ -29,12 +29,10 @@ def test_search():
 
 def test_query():
 
-    q = SearchQuery(all_of='hello world', any_of=['a', 'b', 'c'], none_of=['d', 'e', 'f'],
-                    exact_phrase='goodbye cruel world', hashtags='boyakasha', language='en',
-                    from_account='vahndi', to_account='susansung', mentioning_account='natwest',
-                    from_date=datetime(2016,8,14), to_date=datetime(2016, 8, 21),
-                    positive=True, negative=True, question=True, include_retweets=True)
-    print(q)
+    q = SearchQuery(from_account='realDonaldTrump')
+    results = app.search_tweets(query=q)
+    for s in results.statuses:
+        print(s)
 
 
 # test_trends()

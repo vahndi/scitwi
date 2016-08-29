@@ -12,7 +12,6 @@ class SearchQuery(object):
     def __init__(self, all_of: StrOrListStr=None, any_of: StrOrListStr=None, none_of: StrOrListStr=None,
                  exact_phrase: str=None, hashtags: StrOrListStr=None, language=None,
                  from_account: StrOrListStr=None, to_account: StrOrListStr=None, mentioning_account: StrOrListStr=None,
-                 near_place=None,
                  from_date: datetime=None, to_date: datetime=None,
                  positive: bool=False, negative: bool=False, question: bool=False, include_retweets: bool=False):
 
@@ -21,11 +20,11 @@ class SearchQuery(object):
         self.none_of = listify(none_of)
         self.exact_phrase = listify(exact_phrase)
         self.hashtags = listify(hashtags)
-        self.language = listify(language)
+        self.language = listify(language)  # TODO: Create a language enum
         self.from_account = listify(from_account)
         self.to_account = listify(to_account)
         self.mentioning_account = listify(mentioning_account)
-        self.near_place = near_place
+        # TODO: Add near_place
         self.from_date = from_date
         self.to_date = to_date
         self.positive = positive
@@ -53,8 +52,10 @@ class SearchQuery(object):
         str_query = add_list_items(str_query, self.from_account, prepend='from:')
         str_query = add_list_items(str_query, self.to_account, prepend='to:')
         str_query = add_list_items(str_query, self.mentioning_account, prepend='@')
-        str_query = add_list_items(str_query, [self.from_date.strftime('%Y-%m-%d')], prepend='since:')
-        str_query = add_list_items(str_query, [self.from_date.strftime('%Y-%m-%d')], prepend='until:')
+        if self.from_date:
+            str_query = add_list_items(str_query, [self.from_date.strftime('%Y-%m-%d')], prepend='since:')
+        if self.to_date:
+            str_query = add_list_items(str_query, [self.from_date.strftime('%Y-%m-%d')], prepend='until:')
         if self.positive:
             str_query += ' :)'
         if self.negative:

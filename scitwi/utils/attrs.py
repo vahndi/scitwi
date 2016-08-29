@@ -57,7 +57,7 @@ def str_attr(attr_dict: dict, attr_dict_key: str):
 
 def list_obj_attr(attr_dict: dict, attr_dict_key: str, obj_type: type):
 
-    if attr_dict_key in attr_dict.keys():
+    if attr_dict_key in attr_dict.keys() and attr_dict[attr_dict_key] is not None:
         return [obj_type(v) for v in attr_dict[attr_dict_key]]
     return []
 

@@ -8,7 +8,9 @@ def attr_string(attr_name: str, attr_value):
 def list_attr_string(attr_name: str, attr_values):
 
     str_out = ''
+    print(attr_name, attr_values)
     if attr_values:
         str_out += '%s:\n' % attr_name
         for v in attr_values:
             str_out += '\t%s\n' % str(v)
+    return str_out

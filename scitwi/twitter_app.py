@@ -1,6 +1,7 @@
 import twitter
 
 from scitwi.search.search_response import SearchResponse
+from scitwi.search.types import StrOrQuery
 from scitwi.trends import Trends
 from .places import PlaceWOE
 from pprint import pprint
@@ -20,15 +21,11 @@ class TwitterApp(object):
     def get_trends(self, place: PlaceWOE):
         
         trends = self.api.trends.place(_id=str(place.value))
-                
         return Trends(trends)
 
-    def search_tweets(self, query, count=100):
+    def search_tweets(self, query: StrOrQuery, count: int=100):
         """
         https://dev.twitter.com/rest/reference/get/search/tweets
-        :param query:
-        :param count:
-        :return:
         """
         search_results = self.api.search.tweets(q=query, count=count)
         return SearchResponse(search_results)
