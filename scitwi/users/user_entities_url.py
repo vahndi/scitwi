@@ -1,6 +1,6 @@
 from scitwi.users.user_entities_url_url import UserEntitiesUrlUrl
 from scitwi.utils.attrs import list_obj_attr
-from scitwi.utils.strs import attr_string
+from scitwi.utils.strs import attr_string, list_attr_string
 
 
 class UserEntitiesUrl(object):
@@ -11,4 +11,4 @@ class UserEntitiesUrl(object):
 
     def __str__(self):
 
-        return attr_string('Urls', self.urls)
+        return list_attr_string('Urls', self.urls)

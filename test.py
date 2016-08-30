@@ -3,7 +3,6 @@ from scitwi.places import PlaceWOE
 from scitwi.twitter_app import TwitterApp
 from scitwi.trends import Trends
 from pprint import pprint
-from datetime import datetime
 from scitwi.search.search_query import SearchQuery
 
 app = TwitterApp(consumer_key=CONSUMER_KEY, consumer_secret=CONSUMER_SECRET,
@@ -12,11 +11,19 @@ app = TwitterApp(consumer_key=CONSUMER_KEY, consumer_secret=CONSUMER_SECRET,
 
 def test_trends():
 
-    trends_UK = app.get_trends(PlaceWOE.UnitedKingdom)
-    trends_US = app.get_trends(PlaceWOE.UnitedStates)
-    print(trends_UK.trend_names)
-    print(trends_US.trend_names)
-    print(Trends.common_trend_names(trends_UK, trends_US))
+    trends_uk = app.get_trends(PlaceWOE.UnitedKingdom)
+    print(trends_uk)
+    for trend in trends_uk.trends_list:
+        print(trend)
+
+
+def test_common_trends():
+
+    trends_uk = app.get_trends(PlaceWOE.UnitedKingdom)
+    trends_us = app.get_trends(PlaceWOE.UnitedStates)
+    print(trends_uk.trend_names)
+    print(trends_us.trend_names)
+    print(Trends.common_trend_names(trends_uk, trends_us))
 
 
 def test_search():
@@ -36,5 +43,5 @@ def test_query():
 
 
 # test_trends()
-#test_search()
+# test_search()
 test_query()
