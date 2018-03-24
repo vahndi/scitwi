@@ -1,4 +1,4 @@
-from ApiKeys.twitter import CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET
+from api_keys.twitter import CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET
 from scitwi.places import PlaceWOE
 from scitwi.twitter_app import TwitterApp
 from scitwi.trends import Trends
@@ -42,6 +42,8 @@ def test_query():
         print(s)
 
 
-# test_trends()
-# test_search()
-test_query()
+if __name__ == '__main__':
+
+    # test_trends()
+    # test_search()
+    test_query()
