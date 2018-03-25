@@ -1,9 +1,10 @@
+from time import sleep
 import twitter
 
+from scitwi.places.place_woe import PlaceWOE
 from scitwi.search.search_response import SearchResponse
 from scitwi.search.types import StrOrQuery
 from scitwi.trends import Trends
-from .places import PlaceWOE
 
 
 class TwitterApp(object):
@@ -33,6 +34,44 @@ class TwitterApp(object):
         """
         https://dev.twitter.com/rest/reference/get/search/tweets
         """
-        print("searching twitter for '%s'..." % str(query))
-        search_results = self.api.search.tweets(q=query, count=count)
-        return SearchResponse(search_results)
+        if count is not None and count <= 100:
+            print("searching twitter for '%s'..." % str(query))
+            search_results = self.api.search.tweets(q=query, count=count)
+            return SearchResponse(response=search_results)
+        else:
+            finished = False
+            num_calls = 0
+            num_results = 0
+            responses = []
+            max_id = None
+            sleep_time = 0
+            while not finished:
+                # sleep to obey rate limit
+                sleep(sleep_time)
+                num_calls += 1
+                # determine how many results to request
+                if count is not None:
+                    remaining_results = count - num_results
+                else:
+                    remaining_results = 100
+                call_count = min(100, remaining_results)
+                # search
+                print("searching twitter for '%s' (call %i: %u)..."
+                      % (str(query), num_calls, call_count))
+                call_results = self.api.search.tweets(
+                    q=query, count=call_count, max_id=max_id
+                )
+                num_results += call_count
+                responses.append(SearchResponse(call_results))
+                # get the next max_id
+                try:
+                    max_id = call_results['search_metadata']['max_id']
+                except:
+                    finished = True
+                # calculate sleep time
+                rate_limit_remaining = call_results.rate_limit_remaining
+                sleep_time = 15 * 60 / rate_limit_remaining
+                # exit if all results have been gathered
+                if num_results == count:
+                    finished = True
+            return SearchResponse(responses=responses)

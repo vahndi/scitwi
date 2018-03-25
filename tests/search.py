@@ -30,9 +30,17 @@ def test_response():
     print(results)
 
 
+def test_long_call():
+
+    q = SearchQuery(hashtags='#halftimeshow')
+    results = app.search_tweets(query=q, count=1000)
+    print(results)
+
+
 if __name__ == '__main__':
 
     # test_search_string()
-    test_from_account()
+    # test_from_account()
     # test_hashtag()
     # test_response()
+    test_long_call()
