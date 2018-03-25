@@ -21,6 +21,11 @@ class SearchResponse(object):
             self.metadata = [r.metadata for r in responses]
             self.statuses = [tweet for r in responses for tweet in r.statuses]
 
+    def min_id(self):
+
+        tweet_ids = [tweet.id_ for tweet in self.statuses]
+        return min(tweet_ids)
+
     def __str__(self):
 
         str_out = ''

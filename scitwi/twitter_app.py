@@ -62,12 +62,12 @@ class TwitterApp(object):
                     q=query, count=call_count, max_id=max_id
                 )
                 num_results += call_count
-                responses.append(SearchResponse(call_results))
-                # get the next max_id
-                try:
-                    max_id = call_results['search_metadata']['max_id']
-                except:
+                response = SearchResponse(call_results)
+                responses.append(response)
+                if len(response.statuses) == 0:
                     finished = True
+                # get the next results url
+                max_id = response.min_id() - 1
                 # calculate sleep time
                 rate_limit_remaining = call_results.rate_limit_remaining
                 sleep_time = 15 * 60 / rate_limit_remaining
