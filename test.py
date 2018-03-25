@@ -11,7 +11,7 @@ app = TwitterApp(consumer_key=CONSUMER_KEY, consumer_secret=CONSUMER_SECRET,
 
 def test_trends():
 
-    trends_uk = app.get_trends(PlaceWOE.UNITED_KINGDOM)
+    trends_uk = app.get_trends(PlaceWOE.USA)
     print(trends_uk)
     for trend in trends_uk.trends_list:
         print(trend)
@@ -19,8 +19,8 @@ def test_trends():
 
 def test_common_trends():
 
-    trends_uk = app.get_trends(PlaceWOE.UNITED_KINGDOM)
-    trends_us = app.get_trends(PlaceWOE.UNITED_STATES)
+    trends_uk = app.get_trends(PlaceWOE.UK)
+    trends_us = app.get_trends(PlaceWOE.USA)
     print(trends_uk.trend_names)
     print(trends_us.trend_names)
     print(Trends.common_trend_names(trends_uk, trends_us))
@@ -28,10 +28,10 @@ def test_common_trends():
 
 def test_search():
 
-    q = '#NationalDogDay'
+    q = '#superbowl'
     results = app.search_tweets(q, 100)
     print(type(results))
-    pprint(results)
+    print(results)
 
 
 def test_query():
@@ -45,5 +45,5 @@ def test_query():
 if __name__ == '__main__':
 
     # test_trends()
-    # test_search()
-    test_query()
+    test_search()
+    # test_query()

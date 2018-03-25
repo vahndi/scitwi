@@ -1,7 +1,7 @@
 from twitter.api import TwitterDictResponse
 
 from scitwi.tweets.tweet import Tweet
-from scitwi.utils.strs import attr_string
+from scitwi.utils.strs import attr_string, list_attr_string
 from .search_metadata import SearchMetadata
 
 
@@ -19,5 +19,5 @@ class SearchResponse(object):
 
         str_out = ''
         str_out += attr_string('Metadata', self.metadata)
-        str_out += attr_string('Statuses', self.statuses)
+        str_out += list_attr_string('Statuses', self.statuses)
         return str_out
