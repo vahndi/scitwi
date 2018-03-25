@@ -1,5 +1,5 @@
 from scitwi.utils.attrs import list_str_attr
-from scitwi.utils.strs import list_attr_string
+from scitwi.utils.strs import list_obj_string
 
 
 class UserEntitiesDescription(object):
@@ -10,4 +10,4 @@ class UserEntitiesDescription(object):
 
     def __str__(self):
 
-        return list_attr_string('Urls', self.urls)
+        return list_obj_string('Urls', self.urls)

@@ -1,6 +1,6 @@
 from scitwi.media.sizes import Sizes
 from scitwi.utils.attrs import str_attr, int_attr, list_int_attr, obj_attr
-from scitwi.utils.strs import obj_string, list_attr_string
+from scitwi.utils.strs import obj_string, list_obj_string
 
 
 class MediaItem(object):
@@ -26,7 +26,7 @@ class MediaItem(object):
         str_out += obj_string('Display Url', self.display_url)
         str_out += obj_string('Expanded Url', self.expanded_url)
         str_out += obj_string('Id', self.id_)
-        str_out += list_attr_string('Indices', self.indices)
+        str_out += list_obj_string('Indices', self.indices)
         str_out += obj_string('Media Url', self.media_url)
         str_out += obj_string('Media Url Https', self.media_url_https)
         str_out += obj_string('Sizes', self.sizes)

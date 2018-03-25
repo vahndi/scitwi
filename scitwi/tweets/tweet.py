@@ -7,7 +7,7 @@ from scitwi.tweets.current_user_retweet import CurrentUserRetweet
 from scitwi.users.user import User
 from scitwi.utils.attrs import list_obj_attr, obj_attr, datetime_attr, int_attr, bool_attr, str_attr, dict_attr, \
     list_str_attr
-from scitwi.utils.strs import list_attr_string, obj_string
+from scitwi.utils.strs import list_obj_string, obj_string
 
 
 class Tweet(object):
@@ -49,7 +49,7 @@ class Tweet(object):
     def __str__(self):
 
         str_out = ''
-        str_out += list_attr_string('Contributors', self.contributors)
+        str_out += list_obj_string('Contributors', self.contributors)
         str_out += obj_string('Coordinates', self.coordinates)
         str_out += obj_string('Created At', self.created_at)
         str_out += obj_string('Current User Retweet', self.current_user_retweet)
@@ -74,7 +74,7 @@ class Tweet(object):
         str_out += obj_string('Truncated', self.truncated)
         str_out += obj_string('User', self.user)
         str_out += obj_string('Withheld Copyright', self.withheld_copyright)
-        str_out += list_attr_string('Withheld In Countries', self.withheld_in_countries)
+        str_out += list_obj_string('Withheld In Countries', self.withheld_in_countries)
         str_out += obj_string('Withheld Scope', self.withheld_scope)
 
         return str_out

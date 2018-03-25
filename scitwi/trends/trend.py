@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import List
 
 from scitwi.places.location import Location
-from scitwi.utils.strs import list_attr_string, obj_string
+from scitwi.utils.strs import list_obj_string, obj_string
 
 
 class Trend(object):
@@ -30,6 +30,6 @@ class Trend(object):
 
         str_out += obj_string('As Of', self.url)
         str_out += obj_string('Created At', self.created_at)
-        str_out += list_attr_string('Locations', self.locations)
+        str_out += list_obj_string('Locations', self.locations)
 
         return str_out

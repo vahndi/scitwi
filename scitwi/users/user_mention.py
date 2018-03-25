@@ -1,5 +1,5 @@
 from scitwi.utils.attrs import int_attr, list_int_attr, str_attr
-from scitwi.utils.strs import obj_string, list_attr_string
+from scitwi.utils.strs import obj_string, list_obj_string
 
 
 class UserMention(object):
@@ -15,7 +15,7 @@ class UserMention(object):
 
         str_out = ''
         str_out += obj_string('Id', self.id_)
-        str_out += list_attr_string('Indices', self.indices)
+        str_out += list_obj_string('Indices', self.indices)
         str_out += obj_string('Name', self.name)
         str_out += obj_string('Screen Name', self.screen_name)
         return str_out

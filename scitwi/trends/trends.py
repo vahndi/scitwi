@@ -3,7 +3,7 @@ from twitter.api import TwitterListResponse
 
 from scitwi.places.location import Location
 from scitwi.utils.attrs import datetime_attr, list_obj_attr
-from scitwi.utils.strs import obj_string, list_attr_string
+from scitwi.utils.strs import obj_string, list_obj_string
 from .trend import Trend
 
 
@@ -48,6 +48,6 @@ class Trends(object):
         str_out = ''
         str_out += obj_string('As Of', self.as_of)
         str_out += obj_string('Created At', self.created_at)
-        str_out += list_attr_string('Locations', self.locations)
-        str_out += list_attr_string('Trends', self.trend_names)
+        str_out += list_obj_string('Locations', self.locations)
+        str_out += list_obj_string('Trends', self.trend_names)
         return str_out

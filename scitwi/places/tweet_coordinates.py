@@ -1,5 +1,5 @@
 from scitwi.utils.attrs import list_float_attr, str_attr
-from scitwi.utils.strs import list_attr_string, obj_string
+from scitwi.utils.strs import list_obj_string, obj_string
 
 
 class TweetCoordinates(object):
@@ -14,7 +14,7 @@ class TweetCoordinates(object):
     def __str__(self):
 
         str_out = ''
-        str_out += list_attr_string('Coordinates', self.coordinates)
+        str_out += list_obj_string('Coordinates', self.coordinates)
         str_out += obj_string('Type', self.type_)
         return str_out
 
