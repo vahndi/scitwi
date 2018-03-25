@@ -1,5 +1,5 @@
 from scitwi.utils.attrs import str_attr, bool_attr
-from scitwi.utils.strs import attr_string
+from scitwi.utils.strs import obj_string
 
 
 class UserProfile(object):
@@ -22,16 +22,16 @@ class UserProfile(object):
     def __str__(self):
 
         str_out = ''
-        str_out += attr_string('Background Color', self.background_color)
-        str_out += attr_string('Background Image URL', self.background_image_url)
-        str_out += attr_string('Background Image URL HTTPS', self.background_image_url_https)
-        str_out += attr_string('Background Tile', self.background_tile)
-        str_out += attr_string('Banner URL', self.banner_url)
-        str_out += attr_string('Image URL', self.image_url)
-        str_out += attr_string('Image URL HTTPS', self.image_url_https)
-        str_out += attr_string('Link Color', self.link_color)
-        str_out += attr_string('Sidebar Border Color', self.sidebar_border_color)
-        str_out += attr_string('Sidebar Fill Color', self.sidebar_fill_color)
-        str_out += attr_string('Text Color', self.text_color)
-        str_out += attr_string('Use Background Image', self.use_background_image)
+        str_out += obj_string('Background Color', self.background_color)
+        str_out += obj_string('Background Image URL', self.background_image_url)
+        str_out += obj_string('Background Image URL HTTPS', self.background_image_url_https)
+        str_out += obj_string('Background Tile', self.background_tile)
+        str_out += obj_string('Banner URL', self.banner_url)
+        str_out += obj_string('Image URL', self.image_url)
+        str_out += obj_string('Image URL HTTPS', self.image_url_https)
+        str_out += obj_string('Link Color', self.link_color)
+        str_out += obj_string('Sidebar Border Color', self.sidebar_border_color)
+        str_out += obj_string('Sidebar Fill Color', self.sidebar_fill_color)
+        str_out += obj_string('Text Color', self.text_color)
+        str_out += obj_string('Use Background Image', self.use_background_image)
         return str_out

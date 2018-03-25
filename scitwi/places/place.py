@@ -1,6 +1,6 @@
 from scitwi.places.bounding_box import BoundingBox
 from scitwi.utils.attrs import dict_attr, str_attr
-from scitwi.utils.strs import attr_string
+from scitwi.utils.strs import obj_string
 
 
 class Place(object):
@@ -35,24 +35,23 @@ class Place(object):
 
         str_out = ''
 
-        str_out += attr_string('Attributes', self.attributes)
-        str_out += attr_string('Bounding Box', self.bounding_box)
-        str_out += attr_string('Contained Within', self.contained_within)
-        str_out += attr_string('Country', self.country)
-        str_out += attr_string('Country Code', self.country_code)
-        str_out += attr_string('Full Name', self.full_name)
-        str_out += attr_string('Id', self.id_)
-        str_out += attr_string('Name', self.name)
-        str_out += attr_string('Place Type', self.place_type)
-
-        str_out += attr_string('Street Address', self.street_address)
-        str_out += attr_string('Locality', self.locality)
-        str_out += attr_string('Region', self.region)
-        str_out += attr_string('ISO 3', self.iso3)
-        str_out += attr_string('Postal Code', self.postal_code)
-        str_out += attr_string('Phone', self.phone)
-        str_out += attr_string('Twitter', self.twitter)
-        str_out += attr_string('Url', self.url)
-        str_out += attr_string('App Id', self.app_id)
+        str_out += obj_string('Attributes', self.attributes)
+        str_out += obj_string('Bounding Box', self.bounding_box)
+        str_out += obj_string('Contained Within', self.contained_within)
+        str_out += obj_string('Country', self.country)
+        str_out += obj_string('Country Code', self.country_code)
+        str_out += obj_string('Full Name', self.full_name)
+        str_out += obj_string('Id', self.id_)
+        str_out += obj_string('Name', self.name)
+        str_out += obj_string('Place Type', self.place_type)
+        str_out += obj_string('Street Address', self.street_address)
+        str_out += obj_string('Locality', self.locality)
+        str_out += obj_string('Region', self.region)
+        str_out += obj_string('ISO 3', self.iso3)
+        str_out += obj_string('Postal Code', self.postal_code)
+        str_out += obj_string('Phone', self.phone)
+        str_out += obj_string('Twitter', self.twitter)
+        str_out += obj_string('Url', self.url)
+        str_out += obj_string('App Id', self.app_id)
 
         return str_out

@@ -19,7 +19,10 @@ class SearchQuery(object):
         self.any_of = listify(any_of)
         self.none_of = listify(none_of)
         self.exact_phrase = listify(exact_phrase)
-        self.hashtags = listify(hashtags)
+        self.hashtags = [
+            '#' + ht if not ht.startswith('#')
+            else ht for ht in listify(hashtags)
+        ]
         self.language = listify(language)  # TODO: Create a language enum
         self.from_account = listify(from_account)
         self.to_account = listify(to_account)
@@ -48,14 +51,23 @@ class SearchQuery(object):
         str_query = add_list_items(str_query, self.any_of, joiner=' OR ')
         str_query = add_list_items(str_query, self.none_of, prepend='-')
         str_query = add_list_items(str_query, self.exact_phrase, prepend='"', append='"')
+        str_query = add_list_items(str_query, self.hashtags)
         str_query = add_list_items(str_query, self.language, prepend='lang:')
         str_query = add_list_items(str_query, self.from_account, prepend='from:')
         str_query = add_list_items(str_query, self.to_account, prepend='to:')
         str_query = add_list_items(str_query, self.mentioning_account, prepend='@')
         if self.from_date:
-            str_query = add_list_items(str_query, [self.from_date.strftime('%Y-%m-%d')], prepend='since:')
+            str_query = add_list_items(
+                str_query,
+                [self.from_date.strftime('%Y-%m-%d')],
+                prepend='since:'
+            )
         if self.to_date:
-            str_query = add_list_items(str_query, [self.from_date.strftime('%Y-%m-%d')], prepend='until:')
+            str_query = add_list_items(
+                str_query,
+                [self.from_date.strftime('%Y-%m-%d')],
+                prepend='until:'
+            )
         if self.positive:
             str_query += ' :)'
         if self.negative:

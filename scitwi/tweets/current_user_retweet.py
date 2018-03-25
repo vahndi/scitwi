@@ -1,5 +1,5 @@
 from scitwi.utils.attrs import str_attr
-from scitwi.utils.strs import attr_string
+from scitwi.utils.strs import obj_string
 
 
 class CurrentUserRetweet(object):
@@ -10,4 +10,4 @@ class CurrentUserRetweet(object):
 
     def __str__(self):
 
-        return attr_string(self.id_)
+        return obj_string(self.id_)

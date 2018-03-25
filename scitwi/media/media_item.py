@@ -1,6 +1,6 @@
 from scitwi.media.sizes import Sizes
 from scitwi.utils.attrs import str_attr, int_attr, list_int_attr, obj_attr
-from scitwi.utils.strs import attr_string, list_attr_string
+from scitwi.utils.strs import obj_string, list_attr_string
 
 
 class MediaItem(object):
@@ -23,15 +23,15 @@ class MediaItem(object):
     def __str__(self):
 
         str_out = ''
-        str_out += attr_string('Display Url', self.display_url)
-        str_out += attr_string('Expanded Url', self.expanded_url)
-        str_out += attr_string('Id', self.id_)
+        str_out += obj_string('Display Url', self.display_url)
+        str_out += obj_string('Expanded Url', self.expanded_url)
+        str_out += obj_string('Id', self.id_)
         str_out += list_attr_string('Indices', self.indices)
-        str_out += attr_string('Media Url', self.media_url)
-        str_out += attr_string('Media Url Https', self.media_url_https)
-        str_out += attr_string('Sizes', self.sizes)
-        str_out += attr_string('Source Status Id', self.source_status_id)
-        str_out += attr_string('Type', self.type_)
-        str_out += attr_string('Url', self.url)
+        str_out += obj_string('Media Url', self.media_url)
+        str_out += obj_string('Media Url Https', self.media_url_https)
+        str_out += obj_string('Sizes', self.sizes)
+        str_out += obj_string('Source Status Id', self.source_status_id)
+        str_out += obj_string('Type', self.type_)
+        str_out += obj_string('Url', self.url)
 
         return str_out

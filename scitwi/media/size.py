@@ -1,5 +1,5 @@
 from scitwi.utils.attrs import int_attr, str_attr
-from scitwi.utils.strs import attr_string
+from scitwi.utils.strs import obj_string
 
 
 class Size(object):
@@ -15,8 +15,8 @@ class Size(object):
     def __str__(self):
 
         str_out = ''
-        str_out += attr_string('Height', self.height)
-        str_out += attr_string('Width', self.width)
-        str_out += attr_string('Resize', self.resize)
+        str_out += obj_string('Height', self.height)
+        str_out += obj_string('Width', self.width)
+        str_out += obj_string('Resize', self.resize)
 
         return str_out

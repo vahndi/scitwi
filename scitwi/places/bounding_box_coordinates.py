@@ -1,4 +1,4 @@
-from scitwi.utils.strs import attr_string
+from scitwi.utils.strs import obj_string
 
 
 class BoundingBoxCoordinates(object):
@@ -9,5 +9,5 @@ class BoundingBoxCoordinates(object):
 
     def __str__(self):
 
-        return attr_string('Coordinates', self.coordinates)
+        return obj_string('Coordinates', self.coordinates)
 

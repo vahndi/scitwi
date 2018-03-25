@@ -1,7 +1,5 @@
-from typing import List
-
 from scitwi.utils.attrs import str_attr, list_int_attr
-from scitwi.utils.strs import list_attr_string, attr_string
+from scitwi.utils.strs import list_attr_string, obj_string
 
 
 class Hashtag(object):
@@ -16,6 +14,6 @@ class Hashtag(object):
     def __str__(self):
 
         str_out = ''
-        str_out += list_attr_string('Indices', self.indices)
-        str_out += attr_string('Text', self.text)
+        str_out += list_attr_string('Indices', self.indices, inline=True)
+        str_out += obj_string('Text', self.text)
         return str_out

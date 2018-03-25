@@ -1,5 +1,5 @@
 from scitwi.utils.attrs import int_attr, str_attr
-from scitwi.utils.strs import attr_string
+from scitwi.utils.strs import obj_string
 
 
 class Contributor(object):
@@ -14,5 +14,5 @@ class Contributor(object):
     def __str__(self):
 
         str_out = ''
-        str_out += attr_string('Id', self.id_)
-        str_out += attr_string('Screen Name', self.screen_name)
+        str_out += obj_string('Id', self.id_)
+        str_out += obj_string('Screen Name', self.screen_name)

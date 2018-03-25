@@ -1,5 +1,5 @@
 from scitwi.utils.attrs import str_attr, list_int_attr
-from scitwi.utils.strs import attr_string, list_attr_string
+from scitwi.utils.strs import obj_string, list_attr_string
 
 
 class UserEntitiesUrlUrl(object):
@@ -13,7 +13,7 @@ class UserEntitiesUrlUrl(object):
     def __str__(self):
 
         str_out = ''
-        str_out += attr_string('Url', self.url)
-        str_out += attr_string('Expanded Url', self.expanded_url)
+        str_out += obj_string('Url', self.url)
+        str_out += obj_string('Expanded Url', self.expanded_url)
         str_out += list_attr_string('Indices', self.indices)
         return str_out

@@ -7,7 +7,7 @@ from scitwi.tweets.current_user_retweet import CurrentUserRetweet
 from scitwi.users.user import User
 from scitwi.utils.attrs import list_obj_attr, obj_attr, datetime_attr, int_attr, bool_attr, str_attr, dict_attr, \
     list_str_attr
-from scitwi.utils.strs import attr_string, list_attr_string
+from scitwi.utils.strs import list_attr_string, obj_string
 
 
 class Tweet(object):
@@ -50,30 +50,31 @@ class Tweet(object):
 
         str_out = ''
         str_out += list_attr_string('Contributors', self.contributors)
-        str_out += attr_string('Coordinates', self.coordinates)
-        str_out += attr_string('Created At', self.created_at)
-        str_out += attr_string('Current User Retweet', self.current_user_retweet)
-        str_out += attr_string('Entities', self.entities)
-        str_out += attr_string('Favorite Count', self.favorite_count)
-        str_out += attr_string('Favorited', self.favorited)
-        str_out += attr_string('Filter Level', self.filter_level)
-        str_out += attr_string('Id', self.id_)
-        str_out += attr_string('In Reply To Screen Name', self.in_reply_to_screen_name)
-        str_out += attr_string('In Reply To Status Id', self.in_reply_to_status_id)
-        str_out += attr_string('Lang', self.lang)
-        str_out += attr_string('Place', self.place)
-        str_out += attr_string('Possibly Sensitive', self.possibly_sensitive)
-        str_out += attr_string('Quoted Status Id', self.quoted_status_id)
-        str_out += attr_string('Quoted Status', self.quoted_status)
-        str_out += attr_string('Scopes', self.scopes)
-        str_out += attr_string('Retweet Count', self.retweet_count)
-        str_out += attr_string('Retweeted', self.retweeted)
-        str_out += attr_string('Retweeted Status', self.retweeted_status)
-        str_out += attr_string('Source', self.source)
-        str_out += attr_string('Text', self.text)
-        str_out += attr_string('Truncated', self.truncated)
-        str_out += attr_string('User', self.user)
-        str_out += attr_string('Withheld Copyright', self.withheld_copyright)
+        str_out += obj_string('Coordinates', self.coordinates)
+        str_out += obj_string('Created At', self.created_at)
+        str_out += obj_string('Current User Retweet', self.current_user_retweet)
+        str_out += obj_string('Entities', self.entities)
+        str_out += obj_string('Favorite Count', self.favorite_count)
+        str_out += obj_string('Favorited', self.favorited)
+        str_out += obj_string('Filter Level', self.filter_level)
+        str_out += obj_string('Id', self.id_)
+        str_out += obj_string('In Reply To Screen Name', self.in_reply_to_screen_name)
+        str_out += obj_string('In Reply To Status Id', self.in_reply_to_status_id)
+        str_out += obj_string('Lang', self.lang)
+        str_out += obj_string('Place', self.place)
+        str_out += obj_string('Possibly Sensitive', self.possibly_sensitive)
+        str_out += obj_string('Quoted Status Id', self.quoted_status_id)
+        str_out += obj_string('Quoted Status', self.quoted_status)
+        str_out += obj_string('Scopes', self.scopes)
+        str_out += obj_string('Retweet Count', self.retweet_count)
+        str_out += obj_string('Retweeted', self.retweeted)
+        str_out += obj_string('Retweeted Status', self.retweeted_status)
+        str_out += obj_string('Source', self.source)
+        str_out += obj_string('Text', self.text)
+        str_out += obj_string('Truncated', self.truncated)
+        str_out += obj_string('User', self.user)
+        str_out += obj_string('Withheld Copyright', self.withheld_copyright)
         str_out += list_attr_string('Withheld In Countries', self.withheld_in_countries)
-        str_out += attr_string('Withheld Scope', self.withheld_scope)
+        str_out += obj_string('Withheld Scope', self.withheld_scope)
+
         return str_out

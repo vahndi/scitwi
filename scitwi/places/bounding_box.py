@@ -1,6 +1,6 @@
 from scitwi.places.bounding_box_coordinates import BoundingBoxCoordinates
 from scitwi.utils.attrs import obj_attr, str_attr
-from scitwi.utils.strs import attr_string
+from scitwi.utils.strs import obj_string
 
 
 class BoundingBox(object):
@@ -15,6 +15,6 @@ class BoundingBox(object):
     def __str__(self):
 
         str_out = ''
-        str_out += attr_string('Coordinates', self.coordinates)
-        str_out += attr_string('Type', self.type_)
+        str_out += obj_string('Coordinates', self.coordinates)
+        str_out += obj_string('Type', self.type_)
         return str_out

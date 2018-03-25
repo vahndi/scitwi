@@ -1,5 +1,5 @@
 from scitwi.utils.attrs import float_attr, int_attr, str_attr
-from scitwi.utils.strs import attr_string
+from scitwi.utils.strs import obj_string
 
 
 class SearchMetadata(object):
@@ -19,12 +19,12 @@ class SearchMetadata(object):
     def __str__(self):
 
         str_out = ''
-        str_out += attr_string('Completed In', self.completed_in)
-        str_out += attr_string('Count', self.count)
-        str_out += attr_string('Max Id', self.max_id)
-        str_out += attr_string('Next Results', self.next_results)
-        str_out += attr_string('Query', self.query)
-        str_out += attr_string('Refresh Url', self.refresh_url)
-        str_out += attr_string('Since Id', self.since_id)
+        str_out += obj_string('Completed In', self.completed_in)
+        str_out += obj_string('Count', self.count)
+        str_out += obj_string('Max Id', self.max_id)
+        str_out += obj_string('Next Results', self.next_results)
+        str_out += obj_string('Query', self.query)
+        str_out += obj_string('Refresh Url', self.refresh_url)
+        str_out += obj_string('Since Id', self.since_id)
         return str_out
 

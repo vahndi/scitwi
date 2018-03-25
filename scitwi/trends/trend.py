@@ -1,8 +1,8 @@
-from typing import List
 from datetime import datetime
+from typing import List
 
 from scitwi.places.location import Location
-from scitwi.utils.strs import attr_string, list_attr_string
+from scitwi.utils.strs import list_attr_string, obj_string
 
 
 class Trend(object):
@@ -22,14 +22,14 @@ class Trend(object):
     def __str__(self):
 
         str_out = ''
-        str_out += attr_string('Name', self.name)
-        str_out += attr_string('Promoted Content', self.promoted_content)
-        str_out += attr_string('Query', self.query)
-        str_out += attr_string('Tweet Volume', self.tweet_volume)
-        str_out += attr_string('Url', self.url)
+        str_out += obj_string('Name', self.name)
+        str_out += obj_string('Promoted Content', self.promoted_content)
+        str_out += obj_string('Query', self.query)
+        str_out += obj_string('Tweet Volume', self.tweet_volume)
+        str_out += obj_string('Url', self.url)
 
-        str_out += attr_string('As Of', self.url)
-        str_out += attr_string('Created At', self.created_at)
+        str_out += obj_string('As Of', self.url)
+        str_out += obj_string('Created At', self.created_at)
         str_out += list_attr_string('Locations', self.locations)
 
         return str_out

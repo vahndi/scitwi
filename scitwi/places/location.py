@@ -1,5 +1,5 @@
 from scitwi.utils.attrs import str_attr, int_attr
-from scitwi.utils.strs import attr_string
+from scitwi.utils.strs import obj_string
 
 
 class Location(object):
@@ -12,6 +12,6 @@ class Location(object):
     def __str__(self):
 
         str_out = ''
-        str_out += attr_string('Name', self.name)
-        str_out += attr_string('WOE Id', self.woe_id)
+        str_out += obj_string('Name', self.name)
+        str_out += obj_string('WOE Id', self.woe_id)
         return str_out

@@ -1,4 +1,4 @@
-from scitwi.utils.strs import attr_string
+from scitwi.utils.strs import obj_string
 
 
 class Geo(object):
@@ -11,6 +11,6 @@ class Geo(object):
     def __str__(self):
 
         str_out = ''
-        str_out += attr_string('Type', self.type_)
-        str_out += attr_string('Coordinates', self.coordinates)
+        str_out += obj_string('Type', self.type_)
+        str_out += obj_string('Coordinates', self.coordinates)
         return str_out
