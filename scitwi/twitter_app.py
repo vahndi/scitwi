@@ -67,10 +67,19 @@ class TwitterApp(object):
                 if len(response.statuses) == 0:
                     finished = True
                 # get the next results url
-                max_id = response.min_id() - 1
+                min_id = response.min_id()
+                if min_id is not None:
+                    max_id = response.min_id() - 1
+                else:
+                    finished = True
                 # calculate sleep time
                 rate_limit_remaining = call_results.rate_limit_remaining
-                sleep_time = 15 * 60 / rate_limit_remaining
+                print('rate limit remaining = %i' % rate_limit_remaining)
+                sleep_time = (
+                    15 * 60 / rate_limit_remaining
+                    if rate_limit_remaining > 0
+                    else 60
+                )
                 # exit if all results have been gathered
                 if num_results == count:
                     finished = True

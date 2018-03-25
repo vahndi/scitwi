@@ -1,7 +1,5 @@
 from scitwi.search.search_query import SearchQuery
-from scitwi.search.search_response import SearchResponse
 from tests.shared import app
-from pickle import dump, load, loads
 
 
 def test_search_string():
@@ -32,26 +30,9 @@ def test_response():
     print(results)
 
 
-def test_long_call():
-
-    q = SearchQuery(hashtags='blm')
-    results = app.search_tweets(query=q, count=200)
-    results.save('./results.pkl')
-    print(results)
-
-
-def read_results():
-
-    results = SearchResponse.load('./results.pkl')
-    print(results.statuses[99])
-    print(results.statuses[100])
-
-
 if __name__ == '__main__':
 
-    # test_search_string()
-    # test_from_account()
-    # test_hashtag()
-    # test_response()
-    test_long_call()
-    read_results()
+    test_search_string()
+    test_from_account()
+    test_hashtag()
+    test_response()

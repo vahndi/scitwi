@@ -65,7 +65,7 @@ class SearchQuery(object):
         if self.to_date:
             str_query = add_list_items(
                 str_query,
-                [self.from_date.strftime('%Y-%m-%d')],
+                [self.to_date.strftime('%Y-%m-%d')],
                 prepend='until:'
             )
         if self.positive:

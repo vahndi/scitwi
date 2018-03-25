@@ -51,6 +51,8 @@ def str_attr(attr_dict: dict, attr_dict_key: str):
     """
     :rtype: str
     """
+    if attr_dict is None:
+        return ''
     if attr_dict_key in attr_dict.keys():
         return attr_dict[attr_dict_key]
     return ''
@@ -92,6 +94,8 @@ def list_str_attr(attr_dict: dict, attr_dict_key: str):
 
 def obj_attr(attr_dict: dict, attr_dict_key: str, obj_type: type):
 
+    if attr_dict is None:
+        return None
     if attr_dict_key in attr_dict.keys():
         if attr_dict[attr_dict_key] is not None:
             return obj_type(attr_dict[attr_dict_key])

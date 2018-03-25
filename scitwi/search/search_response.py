@@ -28,8 +28,13 @@ class SearchResponse(object):
 
     def min_id(self):
 
-        tweet_ids = [tweet.id_ for tweet in self.statuses]
-        return min(tweet_ids)
+        if self.statuses:
+            return min([tweet.id_ for tweet in self.statuses])
+        return None
+
+    @property
+    def num_tweets(self):
+        return len(self.statuses)
 
     def save(self, file_path: str):
         """
