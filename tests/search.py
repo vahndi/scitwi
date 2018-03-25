@@ -1,4 +1,5 @@
 from scitwi.search.search_query import SearchQuery
+from scitwi.search.search_response import SearchResponse
 from tests.shared import app
 from pickle import dump, load, loads
 
@@ -35,13 +36,13 @@ def test_long_call():
 
     q = SearchQuery(hashtags='blm')
     results = app.search_tweets(query=q, count=200)
-    dump(results, open('./results.pkl', 'wb'))
+    results.save('./results.pkl')
     print(results)
 
 
 def read_results():
 
-    results = load(open('./results.pkl', 'rb'))
+    results = SearchResponse.load('./results.pkl')
     print(results.statuses[99])
     print(results.statuses[100])
 
