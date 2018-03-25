@@ -77,4 +77,4 @@ class SearchQuery(object):
         if self.include_retweets:
             str_query += ' include:retweets'
 
-        return str_query
+        return str_query.strip(' ')

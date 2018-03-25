@@ -33,5 +33,6 @@ class TwitterApp(object):
         """
         https://dev.twitter.com/rest/reference/get/search/tweets
         """
+        print("searching twitter for '%s'..." % str(query))
         search_results = self.api.search.tweets(q=query, count=count)
         return SearchResponse(search_results)
