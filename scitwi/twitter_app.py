@@ -1,5 +1,6 @@
 from time import sleep
 import twitter
+from datetime import datetime
 
 from scitwi.places.place_woe import PlaceWOE
 from scitwi.search.search_response import SearchResponse
@@ -30,11 +31,14 @@ class TwitterApp(object):
         trends = self.api.trends.place(_id=str(place.value))
         return Trends(trends)
 
-    def search_tweets(self, query: StrOrQuery, count: int=100):
+    def search_tweets(self, query: StrOrQuery, count: int=100,
+                      print_time: bool=False, print_rate_limit: bool=False):
         """
         https://dev.twitter.com/rest/reference/get/search/tweets
         """
         if count is not None and count <= 100:
+            if print_time:
+                print(datetime.now())
             print("searching twitter for '%s'..." % str(query))
             search_results = self.api.search.tweets(q=query, count=count)
             return SearchResponse(response=search_results)
@@ -56,6 +60,8 @@ class TwitterApp(object):
                     remaining_results = 100
                 call_count = min(100, remaining_results)
                 # search
+                if print_time:
+                    print(datetime.now())
                 print("searching twitter for '%s' (call %i: %u)..."
                       % (str(query), num_calls, call_count))
                 call_results = self.api.search.tweets(
@@ -74,7 +80,8 @@ class TwitterApp(object):
                     finished = True
                 # calculate sleep time
                 rate_limit_remaining = call_results.rate_limit_remaining
-                print('rate limit remaining = %i' % rate_limit_remaining)
+                if print_rate_limit:
+                    print('rate limit remaining = %i' % rate_limit_remaining)
                 sleep_time = (
                     15 * 60 / rate_limit_remaining
                     if rate_limit_remaining > 0

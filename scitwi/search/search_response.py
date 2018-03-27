@@ -1,4 +1,5 @@
-from pickle import dump, load
+import gzip
+import pickle
 from twitter.api import TwitterDictResponse
 
 from scitwi.tweets.tweet import Tweet
@@ -36,26 +37,38 @@ class SearchResponse(object):
     def num_tweets(self):
         return len(self.statuses)
 
-    def save(self, file_path: str):
+    def save(self, file_path: str, compress: bool):
         """
         Save the response object to disk.
 
         :param file_path: The path to the file to save.
+        :param compress: Whether to compress the file with gzip.
         """
-        if self._response:
-            dump(self._response, open(file_path, 'wb'))
+        out_obj = self._response if self._response else self._responses
+        if compress:
+            f = gzip.open(file_path, 'wb')
+            pickle.dump(out_obj, f)
+            f.close()
         else:
-            dump(self._responses, open(file_path, 'wb'))
+            pickle.dump(out_obj, open(file_path, 'wb'))
 
     @classmethod
-    def load(cls, file_path: str):
+    def load(cls, file_path: str, compressed: bool):
         """
         Load a response from disk and return a new SearchResponse.
 
-        :param file_path:
+        :param file_path: The path to the file to load.
+        :param compressed: Whether the file is compressed with gzip.
         :rtype: SearchResponse
         """
-        response = load(open(file_path, 'rb'))
+        # load file
+        if compressed:
+            f = gzip.open(file_path, 'rb')
+            response = pickle.load(f)
+            f.close()
+        else:
+            response = pickle.load(open(file_path, 'rb'))
+        # return new SearchResponse instance
         if type(response) is TwitterDictResponse:
             return cls(response=response)
         elif type(response) is list:
